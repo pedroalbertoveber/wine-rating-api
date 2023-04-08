@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+
+  name          String
+  email         String   @unique
+  password_hash String
+  created_at    DateTime @default(now())
+
+  WineRatings WineRating[]
+
+  @@map("users")
+}
+
+model Wine {
+  id String @id @default(uuid())
+
+  name    String
+  country String
+  type    String
+
+  created_at DateTime @default(now())
+
+  WineRatings WineRating[]
+}
+
+model WineRating {
+  id String @id @default(uuid())
+
+  wine Wine @relation(fields: [wine_id], references: [id])
+  user User @relation(fields: [user_id], references: [id])
+
+  wine_id String
+  user_id String
+
+  created_at DateTime @default(now())
+}
