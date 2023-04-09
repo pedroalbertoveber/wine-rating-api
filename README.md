@@ -3,7 +3,7 @@
 An app made for rate the bests wines in the world.
 
 # RF's (Requisitos Funcionais)
-- [ ] Deve ser possível se cadastrar
+- [x] Deve ser possível se cadastrar
 - [ ] Deve ser possível se autenticar
 - [ ] Deve ser possível obter o perfil do usuário logado
 - [ ] Deve ser possível buscar todos os vinhos

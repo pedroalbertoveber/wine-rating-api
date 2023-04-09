@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
-    "lint": "eslint src --ext .ts,.js --fix"
+    "lint": "eslint src --ext .ts,.js --fix",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "prisma": "^4.12.0",
     "tsx": "^3.12.6",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.0"
   }
 }
