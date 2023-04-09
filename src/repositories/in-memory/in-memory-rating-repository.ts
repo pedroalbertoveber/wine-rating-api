@@ -1,6 +1,6 @@
-import { Prisma, WineRating } from "@prisma/client";
 import { RatingRepository } from "../RatingRepository";
 import { randomUUID } from "node:crypto";
+import { Prisma, WineRating } from "@prisma/client";
 
 export class InMemoryRatingRepository implements RatingRepository {
 
@@ -13,6 +13,7 @@ export class InMemoryRatingRepository implements RatingRepository {
       created_at: new Date(),
       user_id: data.user_id,
       wine_id: data.wine_id,
+      rate: new Prisma.Decimal(data.rate.toString())
     }
 
     this.items.push(rating)
