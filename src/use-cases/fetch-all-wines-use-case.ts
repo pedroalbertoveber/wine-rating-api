@@ -2,7 +2,7 @@ import { Wine } from "@prisma/client";
 import { WineRepository } from "../repositories/WineRepository";
 
 interface FetchAllWinesUseCaseRequest {
-  page: number
+  page?: number
 }
 
 interface FetchAllWinesUseCaseResponse {

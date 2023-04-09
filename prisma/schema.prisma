@@ -38,6 +38,8 @@ model Wine {
 model WineRating {
   id String @id @default(uuid())
 
+  rate Decimal
+
   wine Wine @relation(fields: [wine_id], references: [id])
   user User @relation(fields: [user_id], references: [id])
 
