@@ -6,8 +6,8 @@ An app made for rate the bests wines in the world.
 - [x] Deve ser possível se cadastrar
 - [x] Deve ser possível se autenticar
 - [ ] Deve ser possível obter o perfil do usuário logado
-- [ ] Deve ser possível buscar todos os vinhos
-- [ ] Deve ser possível buscar vinhos através do nome
+- [x] Deve ser possível buscar todos os vinhos
+- [x] Deve ser possível buscar vinhos através do nome
 - [ ] Deve ser possível buscar vinhos pelo país de origem
 - [ ] Deve ser possível avaliar um vinho
 - [ ] Deve ser possível obter o histórico de vinhos avaliados por usuário
