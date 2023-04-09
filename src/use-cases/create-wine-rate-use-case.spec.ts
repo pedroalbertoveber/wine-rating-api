@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import { InMemoryRatingRepository } from '../repositories/in-memory/in-memory-rating-repository'
 import { CreateWineRatingUseCase } from './create-wine-rate-use-case'
 import { InvalidWineRateError } from './errors/invalid-wine-rate-error'
+import { UnauthorizedToRateError } from './errors/unauthorized-to-rate-error'
 
 describe('Create wine rating', () => {
 
@@ -42,7 +43,7 @@ describe('Create wine rating', () => {
     ).rejects.toBeInstanceOf(InvalidWineRateError)
   })
 
-  it.todo('should not let user rate the same wine twice', async () => {
+  it('should not let user rate the same wine twice', async () => {
     await sut.execute({
       user_id: 'user_id',
       wine_id: 'wine_id',
@@ -55,7 +56,7 @@ describe('Create wine rating', () => {
         wine_id: 'wine_id',
         wineRate: 2
       })
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(UnauthorizedToRateError)
 
   })
 })
