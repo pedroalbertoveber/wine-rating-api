@@ -6,7 +6,7 @@ import { randomUUID } from 'node:crypto'
 let wineRepository: InMemoryWineRepository
 let sut: FetchAllWinesUseCase
 
-describe('Register Use Case', () => {
+describe('Fetch all wines', () => {
 
   beforeEach(() => {
     wineRepository = new InMemoryWineRepository()
