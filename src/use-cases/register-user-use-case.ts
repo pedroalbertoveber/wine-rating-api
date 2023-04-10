@@ -4,9 +4,9 @@ import { User } from '@prisma/client'
 import { EmailAlreadyRegisteredError } from './errors/email-already-registered-error'
 
 interface RegisterUserUseCaseRequest {
-  name: string,
-  email: string,
-  password: string,
+  name: string
+  email: string
+  password: string
 }
 
 interface RegisterUserUseCaseResponse {
@@ -21,7 +21,6 @@ export class RegisterUserUseCase {
     email,
     password,
   }: RegisterUserUseCaseRequest): Promise<RegisterUserUseCaseResponse> {
-     
     const password_hash = await hash(password, 6)
 
     const userWithSameEmail = await this.userRepository.findByEmail(email)
@@ -37,8 +36,7 @@ export class RegisterUserUseCase {
     })
 
     return {
-      user
+      user,
     }
-
   }
 }

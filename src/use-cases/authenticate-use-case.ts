@@ -4,8 +4,8 @@ import { User } from '@prisma/client'
 import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
 interface RegisterUserUseCaseRequest {
-  email: string,
-  password: string,
+  email: string
+  password: string
 }
 
 interface RegisterUserUseCaseResponse {
@@ -19,7 +19,6 @@ export class AuthenticateUseCase {
     email,
     password,
   }: RegisterUserUseCaseRequest): Promise<RegisterUserUseCaseResponse> {
-
     const user = await this.userRepository.findByEmail(email)
 
     if (!user) {
@@ -30,10 +29,10 @@ export class AuthenticateUseCase {
 
     if (!doesPasswordsMatches) {
       throw new InvalidCredentialsError()
-    } 
+    }
 
     return {
-      user
+      user,
     }
   }
 }

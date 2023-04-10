@@ -1,12 +1,12 @@
 import { RatingRepository } from '../repositories/RatingRepository'
-import {  WineRating } from '@prisma/client'
+import { WineRating } from '@prisma/client'
 import { InvalidWineRateError } from './errors/invalid-wine-rate-error'
 import { UnauthorizedToRateError } from './errors/unauthorized-to-rate-error'
 
 interface CreateWineRateUseCaseRequest {
-  user_id: string,
-  wine_id: string,
-  wineRate: number,
+  user_id: string
+  wine_id: string
+  wineRate: number
 }
 
 interface CreateWineRateUseCaseResponse {
@@ -28,7 +28,10 @@ export class CreateWineRatingUseCase {
       throw new InvalidWineRateError()
     }
 
-    const hasUserAlredyRated = await this.ratingRepository.userHasAlreadyRated(user_id, wine_id)
+    const hasUserAlredyRated = await this.ratingRepository.userHasAlreadyRated(
+      user_id,
+      wine_id,
+    )
 
     if (hasUserAlredyRated) {
       throw new UnauthorizedToRateError()
@@ -41,7 +44,7 @@ export class CreateWineRatingUseCase {
     })
 
     return {
-      rate
+      rate,
     }
   }
 }

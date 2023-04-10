@@ -1,9 +1,9 @@
-import { Wine } from "@prisma/client";
-import { WineRepository } from "../repositories/WineRepository";
+import { Wine } from '@prisma/client'
+import { WineRepository } from '../repositories/WineRepository'
 
 interface FetchWinesByNameUseCaseRequest {
-  page?: number,
-  name: string,
+  page?: number
+  name: string
 }
 
 interface FetchWinesByNameUseCaseResponse {
@@ -13,11 +13,14 @@ interface FetchWinesByNameUseCaseResponse {
 export class FetchWinesByNameUseCase {
   constructor(private wineRepository: WineRepository) {}
 
-  async execute({ page = 1, name }: FetchWinesByNameUseCaseRequest): Promise<FetchWinesByNameUseCaseResponse> {
-    const wines = await this.wineRepository.fetchWineByName(name ,page)
+  async execute({
+    page = 1,
+    name,
+  }: FetchWinesByNameUseCaseRequest): Promise<FetchWinesByNameUseCaseResponse> {
+    const wines = await this.wineRepository.fetchWineByName(name, page)
 
     return {
-      wines
+      wines,
     }
   }
 }

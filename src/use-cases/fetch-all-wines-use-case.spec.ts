@@ -7,7 +7,6 @@ let wineRepository: InMemoryWineRepository
 let sut: FetchAllWinesUseCase
 
 describe('Fetch all wines', () => {
-
   beforeEach(() => {
     wineRepository = new InMemoryWineRepository()
     sut = new FetchAllWinesUseCase(wineRepository)
@@ -19,7 +18,7 @@ describe('Fetch all wines', () => {
       country: 'Chile',
       name: 'Concha y Toro',
       type: 'Merlot',
-      created_at: new Date()
+      created_at: new Date(),
     })
 
     await wineRepository.create({
@@ -27,7 +26,7 @@ describe('Fetch all wines', () => {
       country: 'Argentina',
       name: 'Gato Negro',
       type: 'Pinot',
-      created_at: new Date()
+      created_at: new Date(),
     })
 
     const { wines } = await sut.execute({ page: 1 })
@@ -36,9 +35,8 @@ describe('Fetch all wines', () => {
     expect(wines[0].name).toEqual('Concha y Toro')
   })
 
-  
   it('should be able to get all wines paginated', async () => {
-    for(let i = 1; i <= 22; i++) {
+    for (let i = 1; i <= 22; i++) {
       await wineRepository.create({
         name: `Wine ${i}`,
         country: 'Chile',

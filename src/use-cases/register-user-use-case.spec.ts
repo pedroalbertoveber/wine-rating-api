@@ -7,7 +7,6 @@ let userRepository: InMemoryUserRepository
 let sut: RegisterUserUseCase
 
 describe('Register Use Case', () => {
-
   beforeEach(() => {
     userRepository = new InMemoryUserRepository()
     sut = new RegisterUserUseCase(userRepository)
@@ -30,12 +29,12 @@ describe('Register Use Case', () => {
       password: '123456',
     })
 
-    expect(async () => 
+    expect(async () =>
       sut.execute({
         name: 'Jane Doe',
         email: 'johndoe@example.com',
-        password: '123456'
-      })
+        password: '123456',
+      }),
     ).rejects.toBeInstanceOf(EmailAlreadyRegisteredError)
   })
 })

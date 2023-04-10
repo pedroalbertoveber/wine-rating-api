@@ -15,7 +15,7 @@ export class PrismaUserRepository implements UserRepository {
     const user = await prisma.user.findUnique({
       where: {
         email,
-      }
+      },
     })
 
     return user
@@ -25,7 +25,7 @@ export class PrismaUserRepository implements UserRepository {
     const user = await prisma.user.findUnique({
       where: {
         id: userId,
-      }
+      },
     })
 
     return user

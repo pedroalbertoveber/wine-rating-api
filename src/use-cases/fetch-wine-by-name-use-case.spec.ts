@@ -7,7 +7,6 @@ let wineRepository: InMemoryWineRepository
 let sut: FetchWinesByNameUseCase
 
 describe('Fetch wines by name', () => {
-
   beforeEach(() => {
     wineRepository = new InMemoryWineRepository()
     sut = new FetchWinesByNameUseCase(wineRepository)
@@ -19,7 +18,7 @@ describe('Fetch wines by name', () => {
       country: 'Chile',
       name: 'Concha y Toro',
       type: 'Merlot',
-      created_at: new Date()
+      created_at: new Date(),
     })
 
     await wineRepository.create({
@@ -27,7 +26,7 @@ describe('Fetch wines by name', () => {
       country: 'Argentina',
       name: 'Gato Negro',
       type: 'Pinot',
-      created_at: new Date()
+      created_at: new Date(),
     })
 
     const { wines } = await sut.execute({ name: 'Concha', page: 1 })

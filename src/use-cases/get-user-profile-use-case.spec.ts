@@ -8,14 +8,12 @@ let userRepository: InMemoryUserRepository
 let sut: GetUserProfileUseCase
 
 describe('Get user profile', () => {
-
   beforeEach(() => {
     userRepository = new InMemoryUserRepository()
     sut = new GetUserProfileUseCase(userRepository)
   })
 
   it('should be able to get user profile', async () => {
-
     const createdUser = await userRepository.register({
       name: 'John Doe',
       email: 'johndoe@example.com',
@@ -23,17 +21,17 @@ describe('Get user profile', () => {
     })
 
     const { user } = await sut.execute({
-      userId: createdUser.id
+      userId: createdUser.id,
     })
 
     expect(user.name).toEqual('John Doe')
   })
 
-  it('should not be able to find an user by a non-existent id',async () => {
-    expect(() => 
+  it('should not be able to find an user by a non-existent id', async () => {
+    expect(() =>
       sut.execute({
         userId: 'non-existent-id',
-      })
+      }),
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 })

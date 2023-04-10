@@ -8,7 +8,6 @@ let userRepository: InMemoryUserRepository
 let sut: AuthenticateUseCase
 
 describe('Authenticate Use Case', () => {
-
   beforeEach(async () => {
     userRepository = new InMemoryUserRepository()
     sut = new AuthenticateUseCase(userRepository)
@@ -34,16 +33,16 @@ describe('Authenticate Use Case', () => {
       sut.execute({
         email: 'janedoe@example.com',
         password: '123456',
-      })
+      }),
     ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
 
   it('should not be able to authenticate with wrong password', async () => {
     await expect(() =>
-    sut.execute({
-      email: 'johndow@example.com',
-      password: 'wrong-password',
-    })
-  ).rejects.toBeInstanceOf(InvalidCredentialsError)
+      sut.execute({
+        email: 'johndow@example.com',
+        password: 'wrong-password',
+      }),
+    ).rejects.toBeInstanceOf(InvalidCredentialsError)
   })
 })
