@@ -27,6 +27,14 @@ export class InMemoryRatingRepository implements RatingRepository {
     return ratingHistory
   }
 
+  async getWineRatingHistory(wineId: string, page = 1) {
+    const ratingHistory = this.items
+      .filter((item) => item.wine_id === wineId)
+      .slice((page - 1) * 20, page * 20)
+
+    return ratingHistory
+  }
+
   async userHasAlreadyRated(userId: string, wineId: string): Promise<boolean> {
     const hasAlreadyRated = this.items.some(
       (item) => item.user_id === userId && item.wine_id === wineId,
