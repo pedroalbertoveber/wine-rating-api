@@ -42,4 +42,20 @@ export class InMemoryRatingRepository implements RatingRepository {
 
     return hasAlreadyRated
   }
+
+  async getWineAverageRating(wineId: string): Promise<Number> {
+    const selectedWineRatings = this.items.filter(
+      (item) => item.wine_id === wineId,
+    )
+
+    const countWineRatings = selectedWineRatings.length
+
+    const sumOfRates = selectedWineRatings.reduce((prevVal, current) => {
+      return (prevVal += Number(current.rate))
+    }, 0)
+
+    const wineAverageRating = sumOfRates / countWineRatings
+
+    return wineAverageRating
+  }
 }

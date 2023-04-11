@@ -5,4 +5,5 @@ export interface RatingRepository {
   getUserWineRatingHistory(userId: string, page?: number): Promise<WineRating[]>
   getWineRatingHistory(wineId: string, page?: number): Promise<WineRating[]>
   userHasAlreadyRated(userId: string, wine_id: string): Promise<boolean>
+  getWineAverageRating(wineId: string): Promise<Number>
 }

@@ -11,7 +11,7 @@ An app made for rate the bests wines in the world.
 - [x] Deve ser possível buscar vinhos pelo país de origem
 - [x] Deve ser possível avaliar um vinho
 - [x] Deve ser possível obter o histórico de vinhos avaliados por usuário
-- [ ] Deve ser possível obter o histórico de avaliação por vinho
+- [x] Deve ser possível obter o histórico de avaliação por vinho
 - [ ] Deve ser possível obter a média de avaliação de um vinho
 - [x] Deve ser possível cadastrar um vinho
 - [x] Deve ser possível editar um vinho
