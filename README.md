@@ -12,7 +12,7 @@ An app made for rate the bests wines in the world.
 - [x] Deve ser possível avaliar um vinho
 - [x] Deve ser possível obter o histórico de vinhos avaliados por usuário
 - [x] Deve ser possível obter o histórico de avaliação por vinho
-- [ ] Deve ser possível obter a média de avaliação de um vinho
+- [x] Deve ser possível obter a média de avaliação de um vinho
 - [x] Deve ser possível cadastrar um vinho
 - [x] Deve ser possível editar um vinho
 
@@ -27,3 +27,10 @@ An app made for rate the bests wines in the world.
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [x] Todas as listas de dados precisam estar paginadas com 20 ítens por página
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token)
+
+# Nexts Tasks
+- [ ] - Criar Factories
+- [ ] - Criar Casos de Usos no repositório Prisma
+- [ ] - Chamar as funções use-cases no controller
+- [ ] - Criação de Token JWT
+- [ ] - Testes E2E
