@@ -29,7 +29,7 @@ An app made for rate the bests wines in the world.
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token)
 
 # Nexts Tasks
-- [ ] - Criar Factories
+- [x] - Criar Factories
 - [ ] - Criar Casos de Usos no repositório Prisma
 - [ ] - Chamar as funções use-cases no controller
 - [ ] - Criação de Token JWT
