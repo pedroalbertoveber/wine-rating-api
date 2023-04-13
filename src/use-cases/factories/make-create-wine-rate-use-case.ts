@@ -1,9 +1,9 @@
-import { PrismaWineRepository } from '../../repositories/prisma/prisma-wine-repository'
-import { CreateWineUseCase } from '../create-wine-use-case'
+import { PrismaRatingRepository } from '../../repositories/prisma/prisma-rating-repository'
+import { CreateWineRatingUseCase } from '../create-wine-rate-use-case'
 
 export function makeCreateWineRateUseCase() {
-  const repository = new PrismaWineRepository()
-  const useCase = new CreateWineUseCase(repository)
+  const repository = new PrismaRatingRepository()
+  const useCase = new CreateWineRatingUseCase(repository)
 
   return useCase
 }
