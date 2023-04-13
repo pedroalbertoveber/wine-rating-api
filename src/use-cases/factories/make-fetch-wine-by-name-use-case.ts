@@ -1,7 +1,8 @@
-import { WineRepository } from '../../repositories/WineRepository'
+import { PrismaWineRepository } from '../../repositories/prisma/prisma-wine-repository'
 import { FetchWinesByNameUseCase } from '../fetch-wine-by-name-use-case'
 
-export function makeCreateWineUseCase(repository: WineRepository) {
+export function makeCreateWineUseCase() {
+  const repository = new PrismaWineRepository()
   const useCase = new FetchWinesByNameUseCase(repository)
 
   return useCase
