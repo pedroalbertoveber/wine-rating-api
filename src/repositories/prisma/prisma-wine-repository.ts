@@ -25,7 +25,10 @@ export class PrismaWineRepository implements WineRepository {
   async fetchWinesByCountry(country: string, page: number): Promise<Wine[]> {
     const wines = await prisma.wine.findMany({
       where: {
-        country,
+        country: {
+          contains: country,
+          mode: 'insensitive',
+        },
       },
       skip: (page - 1) * 20,
       take: 20,
@@ -48,6 +51,7 @@ export class PrismaWineRepository implements WineRepository {
       where: {
         name: {
           contains: name,
+          mode: 'insensitive',
         },
       },
       skip: (page - 1) * 20,

@@ -3,7 +3,7 @@ import { app } from '../../../app'
 import { afterAll, beforeAll, describe, it, expect } from 'vitest'
 import { createAndAuthenticateUser } from '../../../utils/create-and-authenticate-user'
 
-describe('Fetch All Wines (E2E)', () => {
+describe('Fetch Wines by Country (E2E)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -12,15 +12,15 @@ describe('Fetch All Wines (E2E)', () => {
     await app.close()
   })
 
-  it('should be able to fetch all wines', async () => {
+  it('should be able to fetch wines that matches with country', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
     await request(app.server)
       .post('/wines')
       .set('Authorization', `Bearer ${token}`)
       .send({
-        name: 'Some Wine',
-        country: 'United Stats',
+        name: 'Casillero del Diablo',
+        country: 'Argentina',
         type: 'Cabernet',
       })
 
@@ -28,24 +28,26 @@ describe('Fetch All Wines (E2E)', () => {
       .post('/wines')
       .set('Authorization', `Bearer ${token}`)
       .send({
-        name: 'Another Wine',
+        name: 'Concha y Toro',
         country: 'Chile',
         type: 'Merlot',
       })
 
     const response = await request(app.server)
-      .get('/wines')
+      .get('/wines/country')
       .query({
-        page: 1,
+        country: 'argentina',
       })
       .set('Authorization', `Bearer ${token}`)
 
     expect(response.statusCode).toEqual(200)
-    expect(response.body.wines[0]).toEqual(
+    expect(response.body.wines).toEqual([
       expect.objectContaining({
         id: expect.any(String),
-        name: 'Some Wine',
+        name: 'Casillero del Diablo',
+        type: 'Cabernet',
+        country: 'Argentina',
       }),
-    )
+    ])
   })
 })
