@@ -5,13 +5,15 @@ import { fetchAll } from './fetch-all'
 import { fetchWineByName } from './fetch-wine-by-name'
 import { fetchWineByCountry } from './fetch-wine-by-country'
 import { updateWine } from './update'
+import { verifyUserRole } from '../../middlewares/verify-user-role'
 
 export async function wineRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verfiyJWT)
 
-  app.post('/wines', create)
+  app.post('/wines', { onRequest: [verifyUserRole('ADMIN')] }, create)
+  app.put('/wines/edit', { onRequest: [verifyUserRole('ADMIN')] }, updateWine)
+
   app.get('/wines', fetchAll)
   app.get('/wines/search', fetchWineByName)
   app.get('/wines/country', fetchWineByCountry)
-  app.put('/wines/edit', updateWine)
 }

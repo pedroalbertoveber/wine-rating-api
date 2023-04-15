@@ -26,11 +26,11 @@ An app made for rate the bests wines in the world.
 - [x] A senha do usuário precisa estar criptografada
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [x] Todas as listas de dados precisam estar paginadas com 20 ítens por página
-- [ ] O usuário deve ser identificado por um JWT (JSON Web Token)
+- [x] O usuário deve ser identificado por um JWT (JSON Web Token)
 
 # Nexts Tasks
 - [x] - Criar Factories
-- [ ] - Criar Casos de Usos no repositório Prisma
-- [ ] - Chamar as funções use-cases no controller
-- [ ] - Criação de Token JWT
-- [ ] - Testes E2E
+- [x] - Criar Casos de Usos no repositório Prisma
+- [x] - Chamar as funções use-cases no controller
+- [x] - Criação de Token JWT
+- [x] - Testes E2E
