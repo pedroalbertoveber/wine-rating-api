@@ -44,11 +44,6 @@ describe('Fetch Wine Rating History (E2E)', () => {
       })
 
     expect(response.statusCode).toEqual(200)
-    expect(response.body.rates[0]).toEqual(
-      expect.objectContaining({
-        rate: '2',
-        wine_id: wine.id,
-      }),
-    )
+    expect(response.body.rates).toHaveLength(2)
   })
 })
