@@ -4,7 +4,7 @@ import { app } from '../../../app'
 import request from 'supertest'
 import { prisma } from '../../../lib/prisma'
 
-describe('Fetch User Rating History (E2E)', () => {
+describe('Fetch Wine Rating History (E2E)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -13,7 +13,7 @@ describe('Fetch User Rating History (E2E)', () => {
     await app.close()
   })
 
-  it('should be able to get user rating history', async () => {
+  it('should be able to get wine rating history', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
     await request(app.server)
@@ -36,17 +36,17 @@ describe('Fetch User Rating History (E2E)', () => {
     })
 
     const response = await request(app.server)
-      .get('/me/ratings')
+      .get('/wines/ratings')
       .set('Authorization', `Bearer ${token}`)
       .query({
         page: 1,
+        wineId: wine.id,
       })
 
     expect(response.statusCode).toEqual(200)
     expect(response.body.rates[0]).toEqual(
       expect.objectContaining({
         rate: '2',
-        user_id: user.id,
         wine_id: wine.id,
       }),
     )
