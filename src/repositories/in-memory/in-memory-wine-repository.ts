@@ -1,5 +1,5 @@
 import { Prisma, Wine } from '@prisma/client'
-import { WineRepository } from '../WineRepository'
+import { WineRepository } from '../wine-repository'
 import { randomUUID } from 'node:crypto'
 
 interface UpdateWineRequest {

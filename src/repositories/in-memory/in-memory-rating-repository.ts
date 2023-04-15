@@ -1,4 +1,4 @@
-import { RatingRepository } from '../RatingRepository'
+import { RatingRepository } from '../rating-repository'
 import { randomUUID } from 'node:crypto'
 import { Prisma, WineRating } from '@prisma/client'
 

@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client'
-import { RatingRepository } from '../RatingRepository'
+import { RatingRepository } from '../rating-repository'
 import { prisma } from '../../lib/prisma'
 
 export class PrismaRatingRepository implements RatingRepository {

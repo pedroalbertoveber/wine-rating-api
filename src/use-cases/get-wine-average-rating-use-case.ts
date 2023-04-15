@@ -1,4 +1,4 @@
-import { RatingRepository } from '../repositories/RatingRepository'
+import { RatingRepository } from '../repositories/rating-repository'
 
 interface GetWineAverageRatingUseCaseRequest {
   wineId: string

@@ -1,5 +1,5 @@
 import { WineRating } from '@prisma/client'
-import { RatingRepository } from '../repositories/RatingRepository'
+import { RatingRepository } from '../repositories/rating-repository'
 
 interface FetchUserRatingHisoryUseCaseRequest {
   page?: number

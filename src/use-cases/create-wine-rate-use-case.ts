@@ -1,4 +1,4 @@
-import { RatingRepository } from '../repositories/RatingRepository'
+import { RatingRepository } from '../repositories/rating-repository'
 import { WineRating } from '@prisma/client'
 import { InvalidWineRateError } from './errors/invalid-wine-rate-error'
 import { UnauthorizedToRateError } from './errors/unauthorized-to-rate-error'

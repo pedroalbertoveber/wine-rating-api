@@ -1,5 +1,5 @@
 import { Prisma, Wine } from '@prisma/client'
-import { WineRepository } from '../WineRepository'
+import { WineRepository } from '../wine-repository'
 import { prisma } from '../../lib/prisma'
 
 export class PrismaWineRepository implements WineRepository {
