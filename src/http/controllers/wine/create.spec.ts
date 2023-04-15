@@ -13,7 +13,7 @@ describe('Create Wine (E2E)', () => {
   })
 
   it('should be able to create a wine', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser({ app, isAdmin: true })
 
     const response = await request(app.server)
       .post('/wines')

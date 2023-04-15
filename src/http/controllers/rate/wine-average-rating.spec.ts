@@ -3,6 +3,7 @@ import { createAndAuthenticateUser } from '../../../utils/create-and-authenticat
 import { app } from '../../../app'
 import request from 'supertest'
 import { prisma } from '../../../lib/prisma'
+import { randomUUID } from 'node:crypto'
 
 describe('Fetch Wine Average Rating (E2E)', () => {
   beforeAll(async () => {
@@ -14,16 +15,17 @@ describe('Fetch Wine Average Rating (E2E)', () => {
   })
 
   it('should be able to get wine average rating', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser({ app })
 
-    await request(app.server)
-      .post('/wines')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
+    await prisma.wine.create({
+      data: {
+        id: randomUUID(),
         name: 'Concha y Toro',
-        type: 'Merlot',
         country: 'Chile',
-      })
+        type: 'Merlot',
+        created_at: new Date(),
+      },
+    })
 
     const wine = await prisma.wine.findFirstOrThrow()
     const user = await prisma.user.findFirstOrThrow()

@@ -15,7 +15,7 @@ describe('Fetch All Wines (E2E)', () => {
   })
 
   it('should be able to fetch all wines', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser({ app })
 
     await prisma.wine.createMany({
       data: [

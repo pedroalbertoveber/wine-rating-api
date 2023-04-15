@@ -19,8 +19,8 @@ An app made for rate the bests wines in the world.
 # RN's (Regras de Negócio)
 - [x] O usuário não pode se cadastrar um e-mail duplicado
 - [x] O usuário não pode avaliar duas vezes o mesmo vinho
-- [ ] O vinho só pode ser cadastrado/editado por administradores
-- [ ] O vinho só pode ser avaliado por usuários
+- [x] O vinho só pode ser cadastrado/editado por administradores
+- [x] O vinho só pode ser avaliado por usuários
 
 # RNF's (Requisitos Não-Funcionais)
 - [x] A senha do usuário precisa estar criptografada

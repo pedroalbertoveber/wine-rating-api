@@ -14,7 +14,7 @@ describe('Fetch Wine Rating History (E2E)', () => {
   })
 
   it('should be able to get wine rating history', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser({ app, isAdmin: true })
 
     await request(app.server)
       .post('/wines')
