@@ -55,7 +55,6 @@ export class PrismaRatingRepository implements RatingRepository {
         rate: true,
       },
     })
-
-    return Number(wineAverageRating)
+    return Number(wineAverageRating._avg.rate)
   }
 }
